@@ -10,7 +10,11 @@
 </script>
 
 <div class="wrapper">
-	<Chart />
+	<Chart 
+		data={selectedData}
+		xRange={[0, 20]}
+		yRange={[0, 20]}
+	/>
 	<Selector
 		options={Object.keys(data)}
 		bind:selected={selectedOption}

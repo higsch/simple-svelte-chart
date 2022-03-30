@@ -6,7 +6,7 @@
 
 	let selectedOption = 'a';
 
-	$: selectedData = data[selectedOption];
+	$: selectedData = data[selectedOption].sort((a, b) => a.x < b.x ? 1 : -1);
 </script>
 
 <div class="wrapper">

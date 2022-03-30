@@ -1,7 +1,10 @@
 <script>
-    import { scaleLinear } from 'd3';
+    import { scaleLinear } from "d3";
 
-    import Datapoint from './Datapoint.svelte';
+    import XAxis from "./XAxis.svelte";
+    import YAxis from "./YAxis.svelte";
+    import Datapoint from "./Datapoint.svelte";
+    import Line from "./Line.svelte";
 
     export let data;
     export let xRange;
@@ -9,43 +12,50 @@
 
     const padding = 50;
 
+    let width;
+    let height;
+
     $: xScale = scaleLinear()
         .domain(xRange)
         .range([padding, width - padding]);
-    
+
     $: yScale = scaleLinear()
         .domain(yRange)
         .range([height - padding, padding]);
 
-    $: renderedData = data.map(d => {
+    $: renderedData = data.map((d) => {
         return {
             x: xScale(d.x),
-            y: yScale(d.y)
+            y: yScale(d.y),
         };
     });
-
-    let width;
-    let height;
 </script>
 
-<div
-    class="chart"
-    bind:clientWidth={width}
-    bind:clientHeight={height}
->
-    <svg
-        width={width}
-        height={height}
-    >
-        <!-- <XAxis />
-        <YAxis /> -->
-        {#each renderedData as { x, y }}
-            <Datapoint
-                x={x}
-                y={y}
+<div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
+    {#if (width && height)}
+        <svg
+            width={width}
+            height={height}
+        >
+            <XAxis
+                scale={xScale}
+                y={height - padding}
             />
-        {/each}
-    </svg>
+            <YAxis
+                scale={yScale}
+                x={padding}
+            />
+            <Line
+                data={renderedData}
+            />
+            {#each renderedData as { x, y }}
+                <Datapoint
+                    x={x}
+                    y={y}
+                />
+            {/each}
+        </svg>
+    {/if}
 </div>
 
 <style>

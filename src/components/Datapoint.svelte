@@ -1,6 +1,6 @@
 <script>
-    import { tweened } from "svelte/motion";
-    import { cubicOut } from "svelte/easing";
+    import { tweened } from 'svelte/motion';
+    import { cubicOut } from 'svelte/easing';
 
     export let x;
     export let y;

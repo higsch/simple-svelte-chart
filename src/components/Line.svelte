@@ -1,8 +1,8 @@
 <script>
-    import { tweened } from "svelte/motion";
-    import { cubicOut } from "svelte/easing";
-    import { line, curveMonotoneX } from "d3";
-    import { interpolatePath } from "d3-interpolate-path";
+    import { tweened } from 'svelte/motion';
+    import { cubicOut } from 'svelte/easing';
+    import { line, curveMonotoneX } from 'd3';
+    import { interpolatePath } from 'd3-interpolate-path';
 
     export let data;
 

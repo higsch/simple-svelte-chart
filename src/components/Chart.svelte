@@ -1,10 +1,10 @@
 <script>
-    import { scaleLinear } from "d3";
+    import { scaleLinear } from 'd3';
 
-    import XAxis from "./XAxis.svelte";
-    import YAxis from "./YAxis.svelte";
-    import Datapoint from "./Datapoint.svelte";
-    import Line from "./Line.svelte";
+    import XAxis from './XAxis.svelte';
+    import YAxis from './YAxis.svelte';
+    import Datapoint from './Datapoint.svelte';
+    import Line from './Line.svelte';
 
     export let data;
     export let xRange;
@@ -26,7 +26,7 @@
     $: renderedData = data.map((d) => {
         return {
             x: xScale(d.x),
-            y: yScale(d.y),
+            y: yScale(d.y)
         };
     });
 </script>

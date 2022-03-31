@@ -30,7 +30,7 @@
 <style>
     .line {
         fill: none;
-        stroke: purple;
+        stroke: #E64415;
         stroke-width: 2;
     }
 </style>

@@ -2,7 +2,7 @@
     export let scale;
     export let y;
 
-    const textOffset = 15;
+    const textOffset = 25;
 
     $: x0 = scale.range()[0];
     $: x1 = scale.range()[1];
@@ -36,5 +36,6 @@
     text {
         fill: gray;
         text-anchor: middle;
+        font-size: 20px;
     }
 </style>

@@ -13,7 +13,7 @@
 	<Chart 
 		data={selectedData}
 		xRange={[0, 20]}
-		yRange={[0, 20]}
+		yRange={[0, 16]}
 	/>
 	<Selector
 		options={Object.keys(data)}
